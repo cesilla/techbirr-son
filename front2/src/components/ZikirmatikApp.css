@@ -1,0 +1,297 @@
+.KayT {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-image: url('https://via.placeholder.com/375x812');
+}
+
+.Group1261152996 {
+    width: 733.27px;
+    height: 913.24px;
+    left: 502.27px;
+    top: 615.24px;
+    position: absolute;
+    transform: rotate(-180deg);
+    transform-origin: 0 0;
+}
+
+.vector1 {
+    width: 530.62px;
+    height: 403.75px;
+    left: -362.91px;
+    top: -663.24px;
+    position: absolute;
+    transform: rotate(46.85deg);
+    transform-origin: 0 0;
+    background: #E16A55;
+    box-shadow: 296.454px 296.454px 296.454px;
+    filter: blur(296.45px);
+}
+
+.vector2 {
+    width: 211.96px;
+    height: 239.22px;
+    left: -386.12px;
+    top: -592.46px;
+    position: absolute;
+    transform: rotate(46.85deg);
+    transform-origin: 0 0;
+    background: #DBDBDB;
+    box-shadow: 138.565px 138.565px 138.565px;
+    filter: blur(138.56px);
+}
+
+.vector3 {
+    width: 494.98px;
+    height: 483.98px;
+    left: -380.19px;
+    top: -913.24px;
+    position: absolute;
+    transform: rotate(46.85deg);
+    transform-origin: 0 0;
+    background: #CC344C;
+    box-shadow: 276px 276px 276px;
+    filter: blur(276px);
+}
+
+.vector4 {
+    width: 304.37px;
+    height: 389.33px;
+    left: -208.44px;
+    top: -819.24px;
+    position: absolute;
+    transform: rotate(46.85deg);
+    transform-origin: 0 0;
+    background: #A63D6C;
+    box-shadow: 212.214px 212.214px 212.214px;
+    filter: blur(212.21px);
+}
+
+.Vector12 {
+    width: 688.84px;
+    height: 1169.76px;
+    left: -160.84px;
+    top: -729px;
+    position: absolute;
+    box-shadow: 346.601px 346.601px 346.601px;
+    filter: blur(346.60px);
+}
+
+.Frame1261153063 {
+    height: 238.21px;
+    left: 43px;
+    top: 239px;
+    position: absolute;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+    display: inline-flex;
+}
+
+.DilSeIniz {
+    width: 374px;
+    height: 51.21px;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    font-family: Poppins;
+    font-weight: 400;
+    line-height: 40px;
+    word-wrap: break-word;
+}
+
+.Frame1261153061 {
+    align-self: stretch;
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    display: inline-flex;
+}
+
+.FrameInner {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 8px;
+    display: inline-flex;
+}
+
+.Frame26 {
+    width: 122px;
+    height: 45px;
+    padding-left: 121px;
+    padding-right: 121px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background: rgba(255, 255, 255, 0.90);
+    border-radius: 12px;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    display: inline-flex;
+}
+
+.Frame26 .TRkE,
+.Frame26 div {
+    color: rgba(0, 0, 0, 0.95);
+    font-size: 20px;
+    font-family: Poppins;
+    font-weight: 400;
+    letter-spacing: 0.20px;
+    word-wrap: break-word;
+}
+
+.TasksBar {
+    width: 125.85px;
+    height: 9px;
+    left: 125.04px;
+    top: 769px;
+    position: absolute;
+    background: white;
+}
+
+.Frame1261153050 {
+    left: 84px;
+    top: 83px;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    gap: 13.03px;
+    display: inline-flex;
+}
+
+.Tech {
+    text-align: center;
+    color: white;
+    font-size: 29.44px;
+    font-family: Poppins;
+    font-weight: 500;
+    line-height: 59.87px;
+    word-wrap: break-word;
+}
+
+.Frame1261153049 {
+    width: 41.36px;
+    height: 37.15px;
+    position: relative;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    display: flex;
+}
+
+.Group13 {
+    width: 20.34px;
+    height: 19.89px;
+    position: relative;
+}
+
+.vectorSmall {
+    width: 20.34px;
+    height: 5.05px;
+    position: absolute;
+    background: white;
+}
+
+.vectorSmall1 {
+    left: 0;
+    top: 0;
+}
+
+.vectorSmall2 {
+    left: 0;
+    top: 4.21px;
+}
+
+.vectorSmall3 {
+    width: 2.35px;
+    height: 4.03px;
+    left: 8.99px;
+    top: 8.09px;
+    position: absolute;
+    background: white;
+}
+
+.vectorSmall4 {
+    width: 6.81px;
+    height: 4.95px;
+    left: 6.71px;
+    top: 13.13px;
+    position: absolute;
+    background: white;
+}
+
+.vectorSmall5 {
+    width: 7.88px;
+    height: 6.67px;
+    left: 0;
+    top: 8.85px;
+    position: absolute;
+    background: white;
+}
+
+.vectorSmall6 {
+    width: 2.34px;
+    height: 2.65px;
+    left: 3.46px;
+    top: 16.31px;
+    position: absolute;
+    background: white;
+}
+
+.vectorSmall7 {
+    width: 2.34px;
+    height: 6.04px;
+    left: 0;
+    top: 13.84px;
+    position: absolute;
+    background: white;
+}
+
+.vectorSmall8 {
+    width: 4.42px;
+    height: 6.67px;
+    left: 12.66px;
+    top: 8.91px;
+    position: absolute;
+    background: white;
+}
+
+.vectorSmall9 {
+    width: 2.34px;
+    height: 9.55px;
+    left: 18px;
+    top: 10.33px;
+    position: absolute;
+    background: white;
+}
+
+.vectorSmall10 {
+    width: 2.34px;
+    height: 2.65px;
+    left: 14.74px;
+    top: 16.36px;
+    position: absolute;
+    background: white;
+}
+
+.vectorLarge {
+    width: 33.81px;
+    height: 36.31px;
+    transform: rotate(-19.92deg);
+    transform-origin: 0 0;
+    background: white;
+}
+
+.BRr {
+    text-align: center;
+    color: white;
+    font-size: 29.44px;
+    font-family: Poppins;
+    font-weight: 500;
+    line-height: 59.87px;
+    word-wrap: break-word;
+}

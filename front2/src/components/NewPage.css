@@ -1,0 +1,30 @@
+.new-page-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .image-container {
+    position: relative;
+    display: inline-block;
+    margin-top: 20px;
+  }
+  
+  .clickable-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .dot {
+    width: 75px; /* Initial width */
+    height: 75px; /* Initial height */
+    position: absolute;
+    transform: translate(-50%, -50%); /* Center the dot */
+    transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+  }
+  
+  .dot-clicked {
+    width: 100px; /* Enlarged width */
+    height: 100px; /* Enlarged height */
+    transform: translate(-50%, -50%) scale(1.5); /* Grow the dot */
+  }
+  

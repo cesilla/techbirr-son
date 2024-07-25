@@ -1,0 +1,41 @@
+.comments {
+    margin-top: 10px;
+  }
+  
+  .comments h3 {
+    margin: 10px 0;
+  }
+  
+  .comments ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .comments ul li {
+    background-color: #f0f0f0;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .comments input {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: calc(100% - 80px); /* Buton genişliğine göre ayarla */
+  }
+  
+  .comments button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .comments button:hover {
+    background-color: #45a049;
+  }
+  

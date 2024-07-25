@@ -1,0 +1,28 @@
+.selection-page2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f8f9fa;
+  }
+  
+  .selection-page2 h1 {
+    margin-bottom: 20px;
+  }
+  
+  .selection-button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .selection-button:hover {
+    background-color: #0056b3;
+  }
+  

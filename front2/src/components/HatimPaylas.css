@@ -1,0 +1,29 @@
+.hatim-paylas {
+    margin-top: 20px;
+  }
+  
+  .hatim-paylas h3 {
+    margin-bottom: 10px;
+  }
+  
+  .hatim-paylas input {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: calc(100% - 80px); /* Buton genişliğine göre ayarla */
+  }
+  
+  .hatim-paylas button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .hatim-paylas button:hover {
+    background-color: #45a049;
+  }
+  

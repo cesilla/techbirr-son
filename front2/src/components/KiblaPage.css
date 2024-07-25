@@ -1,0 +1,31 @@
+.qibla-direction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: var(--default-font-family);
+  background-image: url('/public/Kıble/kıble.png'); /* Set the background image */
+  background-size: cover;
+  background-position: center;
+}
+
+.compass-container {
+  position: relative;
+  width: 300px; /* Increase size */
+  height: 300px; /* Increase size */
+}
+
+.compass {
+  width: 100%;
+  height: auto;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 75px; /* Increase size proportionally */
+  height: auto;
+  transform-origin: 50% 50%;
+}

@@ -1,0 +1,118 @@
+:root {
+  --default-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
+    "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
+    "Source Han Sans CN", sans-serif;
+}
+
+.navbar {
+  position: fixed; /* Fixed position */
+  bottom: 0; /* Stick to the bottom of the viewport */
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.navbar nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 80px; /* Height of the navbar */
+}
+
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between; /* Adjusted to space icons evenly */
+  width: 100%;
+}
+
+.navbar li {
+  flex: 1;
+  text-align: center;
+  position: relative; /* Added to position icons */
+  margin: 0; /* Removed margin between icons */
+}
+
+.navbar li a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Individual icon sizes */
+.navbar .kible img,
+.navbar .quran img,
+.navbar .allah img,
+.navbar .calendar img {
+  width: 40px; /* Size for all icons except center */
+  height: 40px;
+  position: absolute; /* Positioning */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Center */
+  transition: transform 0.3s; /* Transition for smooth hover effect */
+}
+
+.navbar .center {
+  position: relative;
+  top: -20px; /* Lift the center icon */
+  flex: 0 0 auto; /* Make center icon non-flexible to center it */
+width: 100px;}
+
+.navbar .center-icon {
+  width: 60px; /* Larger size for the center icon */
+  height: 60px;
+  border-radius: 50%;
+  padding: 10px; /* Padding to make the icon look centered within the background */
+  position: absolute; /* Positioning */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Center */
+  transition: transform 0.3s; /* Transition for smooth hover effect */
+}
+
+/* Optional: Adjust font size if you have text below icons */
+.navbar li a span {
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* Hover effects */
+.navbar li:hover img {
+  transform: translate(-50%, -50%) scale(1.2); /* Enlarge the icon on hover */
+}
+
+/* Media queries for mobile devices */
+@media (max-width: 600px) {
+  .navbar nav {
+    height: 60px; /* Reduce height for mobile */
+  }
+
+  .navbar .kible img,
+  .navbar .quran img,
+  .navbar .allah img,
+  .navbar .calendar img {
+    width: 30px; /* Smaller size for mobile */
+    height: 30px;
+  }
+
+  .navbar .center-icon {
+    width: 100px; /* Smaller size for mobile */
+    height: 100px;
+  }
+
+  .navbar li a span {
+    font-size: 10px; /* Smaller font size for mobile */
+  }
+
+  /* Hover effects for mobile devices */
+  .navbar li:hover img {
+    transform: translate(-50%, -50%) scale(1.2); /* Enlarge the icon on hover */
+  }
+}

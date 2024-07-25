@@ -1,0 +1,148 @@
+:root {
+  --default-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC",
+    "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
+    "Source Han Sans CN", sans-serif;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  background-image: url('/public/kayit/Zikir-arkaplan.png'); /* Set the background image */
+  background-size: cover;
+  background-position: center;
+  font-family: var(--default-font-family);
+  position: relative;
+  color: white;
+  text-shadow: 0 0 5px black;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  padding: 20px;
+}
+
+.totalCount {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 20px;
+  text-align: center;
+}
+
+.button {
+  width: 150px;
+  height: 50px;
+  background: #31934D;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-size: 18px;
+  transition: background 0.3s, box-shadow 0.3s;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  margin: 10px;
+}
+
+.button:hover {
+  background: #2c7a45;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.buttonText {
+  font-size: 18px;
+}
+
+.targetContainer {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.progressCircle {
+  width: 150px;
+  height: 150px;
+}
+
+.bgCircle {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 10;
+}
+
+.fgCircle {
+  fill: none;
+  stroke: #31934D;
+  stroke-width: 10;
+  stroke-dasharray: 0 283;
+  transition: stroke-dasharray 0.3s;
+}
+
+.circleText {
+  font-size: 20px;
+  font-weight: bold;
+  fill: black;
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+
+.explosion {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,165,0,1) 0%, rgba(255,69,0,1) 50%, rgba(255,0,0,1) 100%);
+  position: absolute;
+  animation: explode 1s ease-in-out;
+}
+
+@keyframes explode {
+  0% {
+    transform: scale(0.1);
+    opacity: 0.1;
+  }
+  70% {
+    transform: scale(1.3);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 375px) {
+  .totalCount {
+    font-size: 32px;
+    margin: 10px;
+  }
+
+  .button {
+    width: 120px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .progressCircle {
+    width: 120px;
+    height: 120px;
+  }
+
+  .circleText {
+    font-size: 18px;
+  }
+
+  .content {
+    padding: 10px;
+  }
+}
