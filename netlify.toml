@@ -1,6 +1,6 @@
 [build]
   functions = "netlify/functions"
-  publish = "front2"  # Frontend dosyalarınızın bulunduğu dizin
+  publish = "front2/build"
 
 [[redirects]]
   from = "/*"
