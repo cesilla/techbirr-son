@@ -4,6 +4,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const deepl = require('deepl-node');
 const TelegramBot = require('node-telegram-bot-api');
+const TonWeb = require('tonweb');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -17,6 +18,32 @@ const bot = new TelegramBot(token, { polling: true });
 
 app.use(cors());
 app.use(bodyParser.json());
+
+// TON wallet setup
+const tonweb = new TonWeb();
+const { mnemonicNew, mnemonicToWalletKey, Wallets } = tonweb;
+
+async function createWallet() {
+  const mnemonic = await mnemonicNew();
+  const key = await mnemonicToWalletKey(mnemonic);
+  const wallet = new Wallets.all.v3R2(tonweb.provider, {
+    publicKey: key.publicKey,
+    wc: 0
+  });
+
+  return { mnemonic, wallet };
+}
+
+// Route to create a new TON wallet
+app.get('/create-wallet', async (req, res) => {
+  try {
+    const { mnemonic, wallet } = await createWallet();
+    res.json({ mnemonic, address: await wallet.getAddress() });
+  } catch (error) {
+    console.error('Error creating wallet:', error);
+    res.status(500).json({ error: 'Error creating wallet' });
+  }
+});
 
 // Route to fetch prayer times
 app.get('/prayer-times', async (req, res) => {
@@ -95,7 +122,22 @@ bot.onText(/\/translate (.+)/, async (msg, match) => {
   }
 });
 
+// Telegram bot command to create a TON wallet
+bot.onText(/\/createwallet/, async (msg) => {
+  const chatId = msg.chat.id;
+
+  try {
+    const response = await axios.get(`http://localhost:${PORT}/create-wallet`);
+    const { mnemonic, address } = response.data;
+    bot.sendMessage(chatId, `Wallet created!\nMnemonic: ${mnemonic.join(" ")}\nAddress: ${address.toString(true, true, true)}`);
+  } catch (error) {
+    console.error('Error creating wallet:', error);
+    bot.sendMessage(chatId, 'Error creating wallet.');
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
 module.exports = app; // Export Express app for Vercel

@@ -1,16 +1,18 @@
-// src/components/WalletConnector.js
 import React, { useEffect, useState } from 'react';
 import TonConnect from '@tonconnect/sdk';
+import './WalletConnector.css';
 
 const WalletConnector = ({ onConnectWallet }) => {
   const [wallet, setWallet] = useState(null);
   const [address, setAddress] = useState('');
   const [balance, setBalance] = useState('');
+  const [currentLanguage, setCurrentLanguage] = useState(0);
+
+  const languages = ['Connect Wallet', 'Cüzdanı Bağla', 'Conectar Cartera', 'Connecter le Portefeuille', '接钱包', 'اتصل بالمحفظة'];
 
   const tonConnect = new TonConnect();
 
   useEffect(() => {
-    // Check if a wallet is already connected
     const storedWallet = localStorage.getItem('wallet');
     if (storedWallet) {
       const walletData = JSON.parse(storedWallet);
@@ -18,6 +20,12 @@ const WalletConnector = ({ onConnectWallet }) => {
       setAddress(walletData.account.address);
       setBalance(walletData.balance);
     }
+
+    const languageInterval = setInterval(() => {
+      setCurrentLanguage((prev) => (prev + 1) % languages.length);
+    }, 3000);
+
+    return () => clearInterval(languageInterval);
   }, []);
 
   const isMobile = () => {
@@ -31,19 +39,16 @@ const WalletConnector = ({ onConnectWallet }) => {
         throw new Error('No wallets found');
       }
 
-      const selectedWallet = wallets[0]; // Choose the first wallet from the list
+      const selectedWallet = wallets[0];
 
       if (isMobile()) {
-        // Handle mobile wallet connection
         window.location.href = selectedWallet.universalLink;
       } else {
-        // Handle desktop wallet connection
         await tonConnect.connectWallet({
           jsBridgeKey: selectedWallet.jsBridgeKey,
         });
       }
 
-      // Get wallet state
       const walletState = tonConnect.wallet;
       const walletAddress = walletState.account.address;
       const balance = await fetchBalance(walletAddress);
@@ -73,7 +78,6 @@ const WalletConnector = ({ onConnectWallet }) => {
   };
 
   const fetchBalance = async (address) => {
-    // Replace with actual API call to get the balance
     try {
       const response = await fetch(`https://tonapi.io/v1/account/getInfo?account=${address}`);
       const data = await response.json();
@@ -85,15 +89,17 @@ const WalletConnector = ({ onConnectWallet }) => {
   };
 
   return (
-    <div>
+    <div className="wallet-connector">
       {wallet ? (
-        <div>
+        <div className="wallet-info slide-in">
           <p>Connected wallet address: {address}</p>
           <p>Your balance: {balance}</p>
-          <button onClick={disconnectWallet}>Disconnect Wallet</button>
+          <button className="wallet-button" onClick={disconnectWallet}>Disconnect Wallet</button>
         </div>
       ) : (
-        <button onClick={connectWallet}>Connect with Ton Wallet</button>
+        <button className="wallet-button slide-in-bottom" onClick={connectWallet}>
+          {languages[currentLanguage]}
+        </button>
       )}
     </div>
   );

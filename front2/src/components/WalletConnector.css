@@ -29,7 +29,15 @@
   }
 }
 
-.slide-in {
+.wallet-connector {
+  background: url('/public/kayit/Kayıtt2.png') no-repeat center center;
+  background-size: cover;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.wallet-info {
   animation: slideIn 0.5s forwards;
 }
 
@@ -37,8 +45,18 @@
   animation: slideInFromBottom 0.5s forwards;
 }
 
-button:hover {
-  background: rgba(255, 255, 255, 1);
-  box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+.wallet-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
 }
 
+.wallet-button:hover {
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+}
