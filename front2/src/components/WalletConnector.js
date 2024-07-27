@@ -58,7 +58,7 @@ const WalletConnector = ({ onConnectWallet }) => {
       setBalance(balance);
 
       localStorage.setItem('wallet', JSON.stringify(walletData));
-      onConnectWallet();
+      onConnectWallet(walletData);
     } catch (error) {
       console.error('Ton Wallet connection failed:', error);
     }
@@ -74,9 +74,14 @@ const WalletConnector = ({ onConnectWallet }) => {
 
   const fetchBalance = async (address) => {
     // Replace with actual API call to get the balance
-    const response = await fetch(`https://tonapi.io/v1/account/getInfo?account=${address}`);
-    const data = await response.json();
-    return data.balance;
+    try {
+      const response = await fetch(`https://tonapi.io/v1/account/getInfo?account=${address}`);
+      const data = await response.json();
+      return data.balance;
+    } catch (error) {
+      console.error('Failed to fetch balance:', error);
+      return 'N/A';
+    }
   };
 
   return (
