@@ -5,9 +5,10 @@ const bodyParser = require('body-parser');
 const deepl = require('deepl-node');
 const TelegramBot = require('node-telegram-bot-api');
 const TonWeb = require('tonweb');
+const path = require('path');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 const authKey = '7309348405:AAEJmW2iw5zLkbhuEFg0kMlQIxyFpcEaZ0M'; // DeepL API key
 const translator = new deepl.Translator(authKey);
@@ -18,6 +19,8 @@ const bot = new TelegramBot(token, { polling: true });
 
 app.use(cors());
 app.use(bodyParser.json());
+
+app.use(express.static(path.join(__dirname, 'build')));
 
 // TON wallet setup
 const tonweb = new TonWeb();
