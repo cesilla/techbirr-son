@@ -1,3 +1,5 @@
+// src/components/WalletConnector.js
+
 import React, { useEffect, useState } from 'react';
 import TonConnect, { TonConnectUI, Wallet } from '@tonconnect/sdk';
 import './WalletConnector.css';
@@ -27,7 +29,7 @@ const WalletConnector = ({ onConnectWallet }) => {
     }, 3000);
 
     return () => clearInterval(languageInterval);
-  }, [languages.length]); // `languages.length` bağımlılık dizisine eklendi
+  }, [languages.length]);
 
   const connectWallet = async () => {
     try {
@@ -44,23 +46,23 @@ const WalletConnector = ({ onConnectWallet }) => {
         await tonConnectUI.connectWallet({
           jsBridgeKey: selectedWallet.jsBridgeKey,
         });
+
+        const walletState = await tonConnect.getWallet();
+        const walletAddress = walletState.account.address;
+        const balance = await fetchBalance(walletAddress);
+
+        const walletData = {
+          address: walletAddress,
+          balance,
+        };
+
+        setWallet(walletData);
+        setAddress(walletAddress);
+        setBalance(balance);
+
+        localStorage.setItem('wallet', JSON.stringify(walletData));
+        onConnectWallet(walletData);
       }
-
-      const walletState = await tonConnect.getWallet();
-      const walletAddress = walletState.account.address;
-      const balance = await fetchBalance(walletAddress);
-
-      const walletData = {
-        address: walletAddress,
-        balance,
-      };
-
-      setWallet(walletData);
-      setAddress(walletAddress);
-      setBalance(balance);
-
-      localStorage.setItem('wallet', JSON.stringify(walletData));
-      onConnectWallet(walletData);
     } catch (error) {
       console.error('Ton Wallet connection failed:', error);
     }
