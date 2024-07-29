@@ -1,5 +1,4 @@
 const { Telegraf } = require('telegraf');
-
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
 bot.start((ctx) => {
@@ -9,7 +8,7 @@ bot.start((ctx) => {
         [
           {
             text: 'Open Mini App',
-            web_app: { url: 'https://66a2499cb65e2b192fdc5038--lustrous-mousse-6b5222.netlify.app/' }
+            web_app: { url: 'https://66a76c9cce722300096dfff1--lustrous-mousse-6b5222.netlify.app/' }
           }
         ]
       ]
