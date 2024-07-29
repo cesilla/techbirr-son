@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useTonConnectUI } from '@tonconnect/ui-react';
+import { useTonConnectUI, UserActionEvent, SdkActionEvent } from '@tonconnect/ui-react';
 import './WalletConnector.css';
+import { TonProofDemoApi } from './TonProofDemoApiService';
 
 const WalletConnector = ({ onConnectWallet }) => {
   const [wallet, setWallet] = useState(null);
@@ -28,6 +29,75 @@ const WalletConnector = ({ onConnectWallet }) => {
     return () => clearInterval(languageInterval);
   }, []);
 
+  useEffect(() => {
+    const logEvent = (scope) => (event) => {
+      scope = scope.startsWith('ton-connect-ui-') ? 'TonConnectUI' : 'TonConnect';
+  
+      return (event) => {
+        if (!(event instanceof CustomEvent)) {
+          return;
+        }
+        const detail = event.detail;
+        console.log(`${scope} Event: ${detail.type}`, detail);
+      };
+    };
+  
+    const tonConnectUiPrefix = 'ton-connect-ui-';
+    const tonConnectUiEvents = [
+      'request-version',
+      'response-version',
+      'connection-started',
+      'connection-completed',
+      'connection-error',
+      'connection-restoring-started',
+      'connection-restoring-completed',
+      'connection-restoring-error',
+      'transaction-sent-for-signature',
+      'transaction-signed',
+      'transaction-signing-failed',
+      'disconnection',
+    ].map(event => `${tonConnectUiPrefix}${event}`);
+  
+    const tonConnectPrefix = 'ton-connect-';
+    const tonConnectEvents = [
+      'request-version',
+      'response-version',
+      'connection-started',
+      'connection-completed',
+      'connection-error',
+      'connection-restoring-started',
+      'connection-restoring-completed',
+      'connection-restoring-error',
+      'transaction-sent-for-signature',
+      'transaction-signed',
+      'transaction-signing-failed',
+      'disconnection',
+    ].map(event => `${tonConnectPrefix}${event}`);
+  
+    const events = [
+      ...tonConnectUiEvents,
+      ...tonConnectEvents,
+    ];
+  
+    for (const event of events) {
+      try {
+        window.addEventListener(event, logEvent(event));
+      } catch (e) {
+        console.error('Failed to add event listener:', e);
+      }
+    }
+  
+    return () => {
+      for (const event of events) {
+        try {
+          window.removeEventListener(event, logEvent(event));
+        } catch (e) {
+          console.error('Failed to remove event listener:', e);
+        }
+      }
+    };
+  }, []);
+
   const isMobile = () => {
     return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
   };
@@ -38,11 +108,11 @@ const WalletConnector = ({ onConnectWallet }) => {
         return;
       }
 
-      tonConnectUI.connectWallet({
+      const connectResult = await tonConnectUI.connectWallet({
         universalLink: isMobile() ? undefined : 'https://tonkeeper.app',
       });
 
-      const walletState = tonConnectUI.wallet;
+      const walletState = connectResult.wallet;
       const walletAddress = walletState.account.address;
       const balance = await fetchBalance(walletAddress);
 
@@ -57,6 +127,10 @@ const WalletConnector = ({ onConnectWallet }) => {
 
       localStorage.setItem('wallet', JSON.stringify(walletData));
       onConnectWallet(walletData);
+
+      if (connectResult.tonProof) {
+        await TonProofDemoApi.checkProof(connectResult.tonProof.proof, connectResult.account);
+      }
     } catch (error) {
       console.error('Ton Wallet connection failed:', error);
     }
@@ -68,6 +142,7 @@ const WalletConnector = ({ onConnectWallet }) => {
     setAddress('');
     setBalance('');
     localStorage.removeItem('wallet');
+    TonProofDemoApi.reset();
   };
 
   const fetchBalance = async (address) => {

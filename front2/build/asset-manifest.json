@@ -1,8 +1,9 @@
 {
   "files": {
-    "main.css": "/static/css/main.a3ce588d.css",
-    "main.js": "/static/js/main.fd07c24a.js",
-    "static/js/453.1af61b4e.chunk.js": "/static/js/453.1af61b4e.chunk.js",
+    "main.css": "/static/css/main.97589cb8.css",
+    "main.js": "/static/js/main.4c3a9dc2.js",
+    "static/js/206.e632acde.chunk.js": "/static/js/206.e632acde.chunk.js",
+    "static/media/Kayıtt2.png": "/static/media/Kayıtt2.9fca0ebe1dd0a398b99f.png",
     "static/media/Arkaplan.png": "/static/media/Arkaplan.2d5f2395b1ff1a432b20.png",
     "static/media/Zikir-arkaplan.png": "/static/media/Zikir-arkaplan.9dd287cc9f5b98940880.png",
     "static/media/fa-solid-900.ttf": "/static/media/fa-solid-900.07ed6d5fa32c1d54af0f.ttf",
@@ -16,13 +17,10 @@
     "static/media/fa-regular-400.woff2": "/static/media/fa-regular-400.bc3722686635b5f86132.woff2",
     "static/media/fa-v4compatibility.ttf": "/static/media/fa-v4compatibility.0f6cb412603527bda691.ttf",
     "static/media/fa-v4compatibility.woff2": "/static/media/fa-v4compatibility.6cfec8414be20e2c3426.woff2",
-    "index.html": "/index.html",
-    "main.a3ce588d.css.map": "/static/css/main.a3ce588d.css.map",
-    "main.fd07c24a.js.map": "/static/js/main.fd07c24a.js.map",
-    "453.1af61b4e.chunk.js.map": "/static/js/453.1af61b4e.chunk.js.map"
+    "index.html": "/index.html"
   },
   "entrypoints": [
-    "static/css/main.a3ce588d.css",
-    "static/js/main.fd07c24a.js"
+    "static/css/main.97589cb8.css",
+    "static/js/main.4c3a9dc2.js"
   ]
 }
