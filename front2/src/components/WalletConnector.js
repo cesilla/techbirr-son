@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import TonConnect from '@tonconnect/sdk';
+import { useTonConnectUI } from '@tonconnect/ui-react';
 import './WalletConnector.css';
 
 const WalletConnector = ({ onConnectWallet }) => {
@@ -10,7 +10,7 @@ const WalletConnector = ({ onConnectWallet }) => {
 
   const languages = ['Connect Wallet', 'Cüzdanı Bağla', 'Conectar Cartera', 'Connecter le Portefeuille', '接钱包', 'اتصل بالمحفظة'];
 
-  const tonConnect = new TonConnect();
+  const [tonConnectUI] = useTonConnectUI();
 
   useEffect(() => {
     const storedWallet = localStorage.getItem('wallet');
@@ -34,22 +34,15 @@ const WalletConnector = ({ onConnectWallet }) => {
 
   const connectWallet = async () => {
     try {
-      const wallets = await tonConnect.getWallets();
-      if (wallets.length === 0) {
-        throw new Error('No wallets found');
+      if (tonConnectUI.connected) {
+        return;
       }
 
-      const selectedWallet = wallets[0];
+      tonConnectUI.connectWallet({
+        universalLink: isMobile() ? undefined : 'https://tonkeeper.app',
+      });
 
-      if (isMobile()) {
-        window.location.href = selectedWallet.universalLink;
-      } else {
-        await tonConnect.connectWallet({
-          jsBridgeKey: selectedWallet.jsBridgeKey,
-        });
-      }
-
-      const walletState = tonConnect.wallet;
+      const walletState = tonConnectUI.wallet;
       const walletAddress = walletState.account.address;
       const balance = await fetchBalance(walletAddress);
 
@@ -70,7 +63,7 @@ const WalletConnector = ({ onConnectWallet }) => {
   };
 
   const disconnectWallet = () => {
-    tonConnect.disconnectWallet();
+    tonConnectUI.disconnect();
     setWallet(null);
     setAddress('');
     setBalance('');
