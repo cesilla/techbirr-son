@@ -8,7 +8,7 @@ bot.start((ctx) => {
         [
           {
             text: 'Open Mini App',
-            web_app: { url: 'https://66a76c9cce722300096dfff1--lustrous-mousse-6b5222.netlify.app' }
+            web_app: { url: 'https://main--lustrous-mousse-6b5222.netlify.app/' }
           }
         ]
       ]
