@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import axios from 'axios';
 import { TonConnectUIProvider, THEME } from "@tonconnect/ui-react";
@@ -39,6 +39,21 @@ function App() {
       .catch(error => {
         console.error('Network error:', error);
       });
+
+    const botToken = process.env.REACT_APP_TELEGRAM_BOT_TOKEN;
+
+    const setWebhook = async () => {
+      const url = `https://api.telegram.org/bot${botToken}/setWebhook?url=https://main--lustrous-mousse-6b5222.netlify.app/`;
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        console.log(data);
+      } catch (error) {
+        console.error('Error setting webhook:', error);
+      }
+    };
+
+    setWebhook();
   }, []);
 
   const handleWalletConnection = () => {
@@ -91,7 +106,7 @@ function App() {
         ]
       }}
       actionsConfiguration={{
-        twaReturnUrl: 'https://t.me/deneme0989bot'
+        twaReturnUrl: 'https://t.me/TechBirr_bot'
       }}
     >
       <Router>
