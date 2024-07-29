@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.97589cb8.css",
-    "main.js": "/static/js/main.4c3a9dc2.js",
+    "main.js": "/static/js/main.800ff422.js",
     "static/js/206.e632acde.chunk.js": "/static/js/206.e632acde.chunk.js",
     "static/media/Kayıtt2.png": "/static/media/Kayıtt2.9fca0ebe1dd0a398b99f.png",
     "static/media/Arkaplan.png": "/static/media/Arkaplan.2d5f2395b1ff1a432b20.png",
@@ -21,6 +21,6 @@
   },
   "entrypoints": [
     "static/css/main.97589cb8.css",
-    "static/js/main.4c3a9dc2.js"
+    "static/js/main.800ff422.js"
   ]
 }
